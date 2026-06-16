@@ -29,3 +29,6 @@ ENV/
 # Data files (if applicable)
 *.pkl
 *.csv
+
+# Git
+.gitignore
