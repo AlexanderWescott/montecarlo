@@ -16,11 +16,11 @@ def points(x1,x2,y1,y2,h):
 
 
 
-def monte_carlo(m,b,e,x1,x2,y1,y2,h,booleen):
+def monte_carlo(m,b,e,x1,x2,y1,y2,h,boolean):
   """m, b, e : y = m*x^e+b
   x1, x2, y1, y2 : corners of outer rectangle
   h : amount of points
-  booleen : True to graph, False to not graph"""
+  boolean : True to graph, False to not graph"""
   r = []
   nr = []
   f = lambda m,b,e,x : m*x**e+b
@@ -31,12 +31,11 @@ def monte_carlo(m,b,e,x1,x2,y1,y2,h,booleen):
       r.append(co)
     else:
       nr.append(co)
-  if booleen == True:
+  if boolean:
     x = np.linspace(x1, x2, 100)
     plt.plot(x, m*x**e+b, linestyle='solid')
     plt.scatter(points(x1,x2,y1,y2,h)[1], points(x1,x2,y1,y2,h)[2], 10000/h)
-    plt.xlabel("Aire = " + str((len(r)/len(p))*(y2-y1)*(x2-x1)))
+    plt.xlabel("Area = " + str((len(r)/len(p))*(y2-y1)*(x2-x1)))
     plt.show()
   return len(r)/len(p)
-print(monte_carlo(-1,9,2,-5,5,-15,9,10000,True))
-
+print(monte_carlo(-1,9,2,-3,3,0,10,10000,True))
